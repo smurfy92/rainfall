@@ -6,7 +6,7 @@ donc on peut envoyer un valeur negative pour bypass le premier check (inf 9)
 
 on prend l'uint max / 4 (car le code multiplie l'arg1 par 4 dans la suite du code) soit -1073741823
 
-on voit que c'est egal a 1 dans $ecx (3eme param de memcpy) donc pas suffisent
+on voit que c'est egal a 1 dans $ecx (3eme param de memcpy) donc pas suffisant
 on ajoute 10 et on reteste -1073741813 on reverifie et $ecx = 65
 
 on reteste et on voit si on met en arg2 la chaine "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" que on ecrit sur arg1 a partir de 'o' donc on peut maintenant mettre en place le code et envoyer le bon nombre dans arg1 a partir du 40eme octet

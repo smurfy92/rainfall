@@ -1,0 +1,5 @@
+on voit que le progamme ouvre le fichier de notre password
+en suite il fais un atoi de argv[1] et compare avec 0
+du coup on lance le programme avec une chaine vide pour bypass le check
+on accede au shell
+GG

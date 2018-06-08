@@ -1,0 +1,28 @@
+
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+int main(int argc, char **argv) 
+{
+	FILE *file = fopen(""/home/user/end/.pass"", "r");
+	char data[66];
+	memset(data, 0, 33);
+	if (argc == 2 && file != NULL) 
+	{
+		fread(data, 1, 66, file);
+		char *str = argv[1];
+		data[atoi(str)] = 0;
+		char *str2;
+		fread(str2, 1, 65, file);
+		fclose(file);
+		if (strcmp(data, str) == 0)
+			system("/bin/sh");
+		else
+			puts(&str2[66]);
+		return 0;
+	}
+	return -1;
+}
