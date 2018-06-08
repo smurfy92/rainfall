@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+int main(int argc, char **argv) 
+{
+	char str[128];
+	char *auth = NULL;
+	char *service = NULL;
+
+	while (true) 
+	{
+		bool authName = false;
+		if (strncmp(str, "auth ", 5) == 0) 
+		{
+			authParam = (char *)malloc(sizeof(char) * 4); 
+			char *tmp = &str[5];
+
+			int len = strlen(tmp);
+			if (len <= 30) 
+			{
+				strcpy(auth, tmp);
+				authName = len < 30;
+			} 
+			else
+				authName = len < 30;
+		}
+		else if (strncmp(str, "reset", 5) == 0 && authName)
+		{
+			free(authParam);
+		}
+		else if (strncmp(str, "service", 6) == 0) 
+		{
+			char *str3 = &str[6];
+			service = strdup(str3);
+		}
+		else if (strncmp(str, "login", 5) == 0)
+		{
+			if (&authParam + 32 == 0)
+				fwrite("Password:\n", 1, 10, stdout);
+			else
+				system("/bin/sh");
+		}
+		printf("%p, %p \n", auth, service);
+		if (fgets(str, 128, stdin) == NULL)
+			break;
+	}
+	return 0;
+}

@@ -1,0 +1,7 @@
+ont voit dans le code qu'en tapant auth ou service ou login on passe des conditions
+
+auth ainsi que service affichent une adresse et s'incrementant de 10 a chaque fois
+
+on voit dans le code qu'il faut qu'il faut incrementer la valeur de service jusqu'a atteindre la valeur 0x804a048
+
+enfin on tape login et on accede a un shell
