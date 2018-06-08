@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+int		main(int argc, char **argv)
+{
+	int c;
+
+	c = atoi(argv[1]);
+
+	if (c != 423)
+		fwrite("No !\n", 5, 1, stderr);
+	else
+	{
+		char *str = strdup("/bin/sh");
+		char *args[] = {"/bin/sh"};
+		gid_t gid = getegid();
+		uid_t uid = geteuid();
+
+		setresgid(gid, gid, gid);
+		setresuid(uid, uid, uid);
+		execv(str, args);
+	}
+	return (0);
+}
