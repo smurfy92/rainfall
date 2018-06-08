@@ -1,0 +1,28 @@
+char  *c
+
+void	m(void)
+{
+	time_t t;
+	t = time(0);
+
+	printf("%s - %d\n",c, t)
+}
+
+int		main(void)
+{
+	char *str;
+	char *str2;
+	char *str3;
+
+	str = malloc(8);
+	str2 = malloc(8);
+	str3 = malloc(8);
+	strcpy(str, argv[1]);
+	strcpy(str, argv[2]);
+
+	FILE *f = fopen("/home/user/level8/.pass", "r");
+
+	fgets(c, 68, f);
+	puts("~~");
+	return (0);
+}

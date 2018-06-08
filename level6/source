@@ -1,0 +1,24 @@
+
+global m;
+
+void	n()
+{
+	system("/bin/cat /home/user/level7/.pass");
+}
+
+void	m()
+{
+	puts("Nope");
+}
+
+void	main()
+{
+	char *str;
+	char *str2;
+
+	str = malloc(64);
+	str2 = malloc(4);
+	str2 = strcpy(str, str2);
+
+	m();
+}

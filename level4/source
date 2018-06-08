@@ -1,6 +1,4 @@
-
 global m;
-
 
 void	p(char *str)
 {
