@@ -1,0 +1,24 @@
+void	p()
+{
+	char str[104];
+	
+	fflush(stdout);
+
+	str = gets(str); \\faille
+	str = str & 0xb0000000;
+	if (str == 0xb0000000)
+	{
+			puts(str);
+			str = strdup(str);
+	}
+	else
+	{
+		printf("(%p)\n", str);
+		exit(1);
+	}
+}
+
+void	main(void)
+{
+	p();
+}
