@@ -1,0 +1,15 @@
+
+void	run(void)
+{
+	char str[24] = "Good... Wait what?\n";
+	
+	fwrite(str, 19, 1, stdout);
+	system("/bin/sh");	
+}
+
+void main(void)
+{
+	char str[80];
+	
+	str = gets(str);		
+}

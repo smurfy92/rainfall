@@ -1,0 +1,4 @@
+dans gdb on voit un atoi de argv[1] et un comparaison avec 423
+
+du coup -> ./level0 423
+GG

