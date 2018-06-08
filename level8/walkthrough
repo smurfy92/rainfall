@@ -1,0 +1,21 @@
+on desasemble le main avec gdb
+on regarde ce qu'il dans
+
+0x08048575 <+17>:	mov    ecx,DWORD PTR ds:0x8049ab0 -> service
+0x0804857b <+23>:	mov    edx,DWORD PTR ds:0x8049aac -> auth
+
+0x08048706 <+418>:	mov    eax,0x804883b -> password:
+0x080486bb <+343>:	mov    eax,0x804882d -> login
+ 0x08048648 <+228>:	mov    eax,0x804881f -> reset
+
+
+// si auth +32 != 0 on continu vers la fonction system sinon on jmp
+0x080486e7 <+387>:	mov    eax,DWORD PTR [eax+0x20]
+0x080486ea <+390>:	test   eax,eax
+0x080486ec <+392>:	je     0x80486ff <main+411>
+
+
+auth coucou
+service coucou * 4
+login
+

