@@ -1,12 +1,12 @@
 void	p()
 {
-	char str[104];
+	char str[76];
 	
 	fflush(stdout);
 
 	str = gets(str); \\faille
 	str = str & 0xb0000000;
-	if (str == 0xb0000000)
+	if (str[80] == 0xb0000000)
 	{
 			puts(str);
 			str = strdup(str);
