@@ -20,5 +20,5 @@ void	main()
 	str2 = malloc(4);
 	str2 = strcpy(str, str2);
 
-	*str2();
+	m();
 }
