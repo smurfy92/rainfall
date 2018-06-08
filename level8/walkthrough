@@ -1,7 +1,21 @@
-ont voit dans le code qu'en tapant auth ou service ou login on passe des conditions
+on desasemble le main avec gdb
+on regarde ce qu'il dans
 
-auth ainsi que service affichent une adresse et s'incrementant de 10 a chaque fois
+0x08048575 <+17>:	mov    ecx,DWORD PTR ds:0x8049ab0 -> service
+0x0804857b <+23>:	mov    edx,DWORD PTR ds:0x8049aac -> auth
 
-on voit dans le code qu'il faut qu'il faut incrementer la valeur de service jusqu'a atteindre la valeur 0x804a048
+0x08048706 <+418>:	mov    eax,0x804883b -> password:
+0x080486bb <+343>:	mov    eax,0x804882d -> login
+ 0x08048648 <+228>:	mov    eax,0x804881f -> reset
 
-enfin on tape login et on accede a un shell
+
+// si auth +32 != 0 on continu vers la fonction system sinon on jmp
+0x080486e7 <+387>:	mov    eax,DWORD PTR [eax+0x20]
+0x080486ea <+390>:	test   eax,eax
+0x080486ec <+392>:	je     0x80486ff <main+411>
+
+
+auth coucou
+service coucou * 4
+login
+

